@@ -1,0 +1,7 @@
+clear; clc; close all;
+%% Calculate the piston side flow Q_1
+D_cyl = 150 %mm
+D_rod = 100 %mm
+eta_hmC = 0.9
+eta_vC = 1.0
+F_L = 40 * 10^3 %N

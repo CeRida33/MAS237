@@ -1,0 +1,119 @@
+%Task_3
+clear; clc; close all;
+format("longG")
+
+
+% Basic permanent magnet DC motor (PMDC) . 
+% Consider a PMDC motor .
+%  Armature supply voltage (u_sA) = 18 Volt . 
+%  Magnetic flux density (B) = 0.50 Tesla . 
+%  Armature resistance (R_A) = 1.67 Ohm .
+%  Number of poles (P) = 4 . 
+%  Total number of armature loops (N_L) = 499 . 
+%  Total number of parallel current paths (N_i) = 2 . 
+%  DC motor armature loop radius (r) = 3 cm . 
+%  DC motor armature loop length (l) = 16 cm . 
+% What is the no-load speed (w_NL) in rad/s?
+
+
+
+cm  = 1e-2;         % m
+cm2 = 1e-4;         % m^2
+
+% ---------- Problem 1 ----------
+P   = 2;
+r   = 5*cm;         % m
+l   = 30*cm;         % m
+NL  = 440;          % total number of loops
+Ni  = 1;            % current paths
+B   = 1.00;          % T
+RA  = 1.67;          % ohm
+u   = 23;           % V
+
+% a) Loop area A
+A = 2*r*l;                          % m^2
+A_cm2 = A/cm2;
+
+% b) Flux area per pole pair A_pp
+App = pi*A/P;                       % m^2
+App_cm2 = App/cm2;
+
+% c) Flux per pole pair phi_pp
+phi_pp = App * B;                   % Wb
+
+% d) DC motor constant K_M
+KM = (P*NL) / (pi*Ni);
+
+% e) PMDC motor constant K_Mphi
+KMphi = KM * phi_pp;                % Wb
+
+% f) Stall torque tau_ST
+tau_ST = KMphi * u / RA;            % N*m
+
+% g) No-load speed omega_NL
+omega_NL = u / KMphi               % rad/s
+
+% omega_NL = 15.0300601202405
+
+
+
+
+
+%%
+%Task_3
+clear; clc; close all;
+format("longG")
+
+
+% Basic permanent magnet DC motor (PMDC) . 
+% Consider a PMDC motor . 
+% Armature supply voltage (u_sA) = 15 Volt . 
+% Magnetic flux density (B) = 0.32 Tesla . 
+% Armature resistance (R_A) = 0.68 Ohm .
+% Number of poles (P) = 2 . 
+% Total number of armature loops (N_L) = 799 . 
+% Total number of parallel current paths (N_i) = 1 . 
+% DC motor armature loop radius (r) = 2 cm . 
+% DC motor armature loop length (l) = 8 cm . 
+% What is the motor constant (K_Mphi) in Wb?
+
+
+cm  = 1e-2;         % m
+cm2 = 1e-4;         % m^2
+
+u_sA = 15 % V
+
+B = 0.32 % T
+
+R_A = 0.68 % Ohm
+
+P = 2 % Poles
+
+N_L = 799
+
+N_i = 1
+
+r = 2*cm
+
+l = 8*cm
+
+
+
+% a) Loop area A
+A = 2*r*l;                          % m^2
+A_cm2 = A/cm2;
+
+% b) Flux area per pole pair A_pp
+App = pi*A/P;                       % m^2
+App_cm2 = App/cm2;
+
+% c) Flux per pole pair phi_pp
+phi_pp = App * B;                   % Wb
+
+% d) DC motor constant K_M
+KM = (P*N_L) / (pi*N_i);
+
+% e) PMDC motor constant K_Mphi
+KMphi = KM * phi_pp                % Wb
+
+% KMphi =  0.818176                % Wb
